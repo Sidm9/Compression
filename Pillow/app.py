@@ -9,7 +9,7 @@ totalTimeTaken = []
 CPUDifference = []
 MemoryDifference = []
 
-NUMBER_OF_RUNS = 150
+NUMBER_OF_RUNS = 1
 
 def log_cpu_memory_time(func):
     def wrapper(*args, **kwargs):
@@ -50,7 +50,7 @@ def log_cpu_memory_time(func):
 @log_cpu_memory_time
 def CompressAndSaveImage(path):
   img = Image.open(path)
-  img.save('../Output/Pillow/Compressed.jpg' , quality=100)
+  img.save('../Output/Pillow/Compressed.png' , quality=100 , format='PNG')
   print("Done")
 
 for i in range(0, NUMBER_OF_RUNS):
@@ -65,11 +65,13 @@ print("Average Sum Time: " , round(averageTotalTime, 3),"s")
 
 print("\n\n")
 print("Total CPU: " ,CPUDifference)
-averageCPUTime = sum(CPUDifference) / len(CPUDifference)
-print("Average CPU Time: " , round(averageCPUTime,3),"%")
+if len(CPUDifference) != 0:
+  averageCPUTime = sum(CPUDifference) / len(CPUDifference)
+  print("Average CPU Time: " , round(averageCPUTime,3),"%")
 
 print("\n\n")
 
 print("Memory:" ,MemoryDifference)
-averageMemory = sum(MemoryDifference) / len(MemoryDifference)
-print("Averge Memory" , round(averageMemory,3),"%")
+if len(MemoryDifference) != 0:
+  averageMemory = sum(MemoryDifference) / len(MemoryDifference)
+  print("Averge Memory" , round(averageMemory,3),"%")

@@ -5,7 +5,7 @@ const totalTimeTaken: number[] = [];
 const CPUDifference: number[] = [];
 const MemoryDifference: number[] = [];
 
-const NUMBER_OF_RUNS = 150;
+const NUMBER_OF_RUNS = 1;
 
 const path = "../Image/23_08_22_18_23_step02_CAM022.png";
 
@@ -53,7 +53,7 @@ async function cpuUsage() {
 }
 
 const CompressAndSaveImage = log_cpu_memory_time(async () => {
-      await sharp(path).jpeg({ quality: 100 }).toFile('../Output/Pillow/CompressedSharp.jpg');
+      await sharp(path).png({ quality: 100 }).toFile('../Output/Pillow/CompressedSharp.png');
       console.log('Done');
 });
 
