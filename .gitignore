@@ -1,0 +1,9 @@
+/Pillow/__pycache__/
+/Pillow/venv/
+
+/Sharp/node_modules
+.DS_Store
+
+Image/*
+
+Output/*
